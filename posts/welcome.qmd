@@ -2,6 +2,8 @@
 title: "First sandbox notes"
 date: 2024-05-01
 categories: [ml, simulations]
+execute:
+  eval: false
 ---
 
 Quick smoke test of code blocks:

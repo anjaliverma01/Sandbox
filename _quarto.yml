@@ -1,0 +1,22 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Sandbox"
+  site-url: https://anjaliverma01.github.io/Sandbox/
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: posts/index.qmd
+        text: Posts
+    right:
+      - icon: github
+        href: https://github.com/anjaliverma01/Sandbox
+
+format:
+  html:
+    theme: cosmo
+    css: styles.scss
+    toc: true

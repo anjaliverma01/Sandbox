@@ -1,0 +1,5 @@
+---
+title: "Welcome to Sandbox"
+---
+
+This is my playground for ML experiments, simulations, code, and visuals. Expect prototypes, notebooks, and work-in-progress ideas.

@@ -10,13 +10,19 @@ website:
       - href: index.qmd
         text: Home
       - href: posts/index.qmd
-        text: Posts
+        text: Blog
+      - href: projects.qmd
+        text: Projects
+      - href: talks.qmd
+        text: Talks
+      - href: publications.qmd
+        text: Publications
     right:
       - icon: github
-        href: https://github.com/anjaliverma01/Sandbox
+        href: https://github.com/anjaliverma01
 
 format:
   html:
     theme: cosmo
     css: styles.scss
-    toc: true
+    toc: false

@@ -1,8 +1,6 @@
 /* Inspired by silviacanelon.com palette/typography */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+Pro:wght@400;600&display=swap');
 
-$primary: #0f2d4a; /* deep navy */
-
 :root {
   --bg: #f7f1e9;
   --navy: #0f2d4a;

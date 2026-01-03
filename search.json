@@ -1,12 +1,5 @@
 [
   {
-    "objectID": "posts/welcome.html",
-    "href": "posts/welcome.html",
-    "title": "First sandbox notes",
-    "section": "",
-    "text": "Quick smoke test of code blocks:\nimport numpy as np\nnp.random.seed(0)\nnp.random.rand(3)\nInline viz idea: drop in Plotly/Altair/Observable embeds here later."
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Welcome to Sandbox",
@@ -19,5 +12,12 @@
     "title": "Posts",
     "section": "",
     "text": "Posts and experiments.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFirst sandbox notes\n\n\n\n\n\n\n\n\nMay 1, 2024\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/welcome.html",
+    "href": "posts/welcome.html",
+    "title": "First sandbox notes",
+    "section": "",
+    "text": "Quick smoke test of code blocks:\nimport numpy as np\nnp.random.seed(0)\nnp.random.rand(3)\nInline viz idea: drop in Plotly/Altair/Observable embeds here later."
   }
 ]

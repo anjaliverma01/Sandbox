@@ -7,13 +7,6 @@
     "text": "Hi, I’m Anjali. This is my sandbox for ML experiments, simulations, code, and visual storytelling.\n\nInterests: ML, simulation, data viz, prototypes.\nWhat you’ll find: work-in-progress notes, visuals, and links to projects/posts.\nContact: GitHub · Email"
   },
   {
-    "objectID": "posts/welcome.html",
-    "href": "posts/welcome.html",
-    "title": "First sandbox notes",
-    "section": "",
-    "text": "Quick smoke test of code blocks:\nimport numpy as np\nnp.random.seed(0)\nnp.random.rand(3)\nInline viz idea: drop in Plotly/Altair/Observable embeds here later."
-  },
-  {
     "objectID": "posts/index.html",
     "href": "posts/index.html",
     "title": "Posts",
@@ -26,5 +19,12 @@
     "title": "Welcome",
     "section": "",
     "text": "Data & ML Experiments\n\n\nSandbox\n\n\nSimulation, code, and visual storytelling. Work in progress, prototypes, and notes on ML, simulations, and data viz.\n\n\nGitHub Email\n\nLearn more →"
+  },
+  {
+    "objectID": "posts/welcome.html",
+    "href": "posts/welcome.html",
+    "title": "First sandbox notes",
+    "section": "",
+    "text": "Quick smoke test of code blocks:\nimport numpy as np\nnp.random.seed(0)\nnp.random.rand(3)\nInline viz idea: drop in Plotly/Altair/Observable embeds here later."
   }
 ]

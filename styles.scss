@@ -1,4 +1,22 @@
-$primary: #0b7285;
+/* Inspired by silviacanelon.com palette/typography */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+Pro:wght@400;600&display=swap');
+
+$primary: #0f2d4a; /* deep navy */
+
+:root {
+  --bg: #f7f1e9;
+  --navy: #0f2d4a;
+  --rust: #b35a1f;
+}
+
 body {
   font-size: 17px;
+  background: var(--bg);
+  color: var(--navy);
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Playfair Display', serif;
+  color: var(--navy);
 }

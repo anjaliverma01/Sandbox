@@ -1,0 +1,9 @@
+---
+title: "About"
+---
+
+Hi, I’m Anjali. This is my sandbox for ML experiments, simulations, code, and visual storytelling.
+
+- Interests: ML, simulation, data viz, prototypes.
+- What you’ll find: work-in-progress notes, visuals, and links to projects/posts.
+- Contact: [GitHub](https://github.com/anjaliverma01) · [Email](mailto:you@example.com)

@@ -1,5 +1,21 @@
 ---
-title: "Welcome to Sandbox"
+title: "Welcome"
+page-layout: full
 ---
 
-This is my playground for ML experiments, simulations, code, and visuals. Expect prototypes, notebooks, and work-in-progress ideas.
+::: {.hero}
+::: {.hero-text}
+<p class="eyebrow">Data & ML Experiments</p>
+<h1>Sandbox</h1>
+<p class="subtitle">
+Simulation, code, and visual storytelling. Work in progress, prototypes, and notes on ML, simulations, and data viz.
+</p>
+<div class="social">
+  <a href="https://github.com/anjaliverma01" aria-label="GitHub">GitHub</a>
+  <a href="mailto:you@example.com" aria-label="Email">Email</a>
+</div>
+<a class="cta" href="posts/index.qmd">Learn more →</a>
+:::
+::: {.hero-visual aria-hidden="true"}
+:::
+:::

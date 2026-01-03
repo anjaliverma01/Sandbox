@@ -1,10 +1,10 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Welcome to Sandbox",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
     "section": "",
-    "text": "This is my playground for ML experiments, simulations, code, and visuals. Expect prototypes, notebooks, and work-in-progress ideas."
+    "text": "Hi, I’m Anjali. This is my sandbox for ML experiments, simulations, code, and visual storytelling.\n\nInterests: ML, simulation, data viz, prototypes.\nWhat you’ll find: work-in-progress notes, visuals, and links to projects/posts.\nContact: GitHub · Email"
   },
   {
     "objectID": "posts/index.html",
@@ -12,6 +12,13 @@
     "title": "Posts",
     "section": "",
     "text": "Posts and experiments.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFirst sandbox notes\n\n\n\n\n\n\n\n\nMay 1, 2024\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome",
+    "section": "",
+    "text": "Data & ML Experiments\n\n\nSandbox\n\n\nSimulation, code, and visual storytelling. Work in progress, prototypes, and notes on ML, simulations, and data viz.\n\n\nGitHub Email\n\nLearn more →"
   },
   {
     "objectID": "posts/welcome.html",

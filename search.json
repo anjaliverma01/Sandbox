@@ -7,11 +7,11 @@
     "text": "Hi, I’m Anjali. This is my sandbox for ML experiments, simulations, code, and visual storytelling.\n\nInterests: ML, simulation, data viz, prototypes.\nWhat you’ll find: work-in-progress notes, visuals, and links to projects/posts.\nContact: GitHub · Email"
   },
   {
-    "objectID": "posts/welcome.html",
-    "href": "posts/welcome.html",
-    "title": "First sandbox notes",
+    "objectID": "posts/index.html",
+    "href": "posts/index.html",
+    "title": "Posts",
     "section": "",
-    "text": "Quick smoke test of code blocks:\nimport numpy as np\nnp.random.seed(0)\nnp.random.rand(3)\nInline viz idea: drop in Plotly/Altair/Observable embeds here later."
+    "text": "Posts and experiments.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nJob Matching Simulation: Yield-Driven Trap\n\n\n\n\n\n\n\n\nJan 5, 2026\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/matching-simulation/index.html",
@@ -89,13 +89,6 @@
     "title": "Job Matching Simulation: Yield-Driven Trap",
     "section": "Matching rules that tend to push toward a “good equilibrium”",
     "text": "Matching rules that tend to push toward a “good equilibrium”\nA. Centralized match after interviews (Deferred Acceptance)\n\nPros: reduces congestion, removes exploding-offer pressure, yields stable matches.\nDoesn’t fully solve interview misallocation (if interview stage is the real bottleneck), but helps.\n\nB. Credible interest signals (cheap talk → limited, costly, or verifiable)\n\nA small number of signals (e.g., 3–5) can strongly improve interview allocation.\nIn the sim, signal_slots&gt;0 pushes mid-tier schools to include “overqualified but interested” candidates.\n\nC. Two-stage / tiered interviewing\n\nStage 1 broad interviews; Stage 2 “mutual interest” or “shortlist” with higher commitment.\nReduces wasted interviews on low-probability pairs.\n\nD. Interview caps + coordinated timing\n\nInterview caps reduce hoarding by top candidates and top departments.\nCoordinated timelines reduce unraveling."
-  },
-  {
-    "objectID": "posts/index.html",
-    "href": "posts/index.html",
-    "title": "Posts",
-    "section": "",
-    "text": "Posts and experiments.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nJob Matching Simulation: Yield-Driven Trap\n\n\n\n\n\n\n\n\nJan 5, 2026\n\n\n\n\n\n\n\n\n\n\n\n\nFirst sandbox notes\n\n\n\n\n\n\n\n\nMay 1, 2024\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",

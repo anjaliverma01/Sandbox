@@ -168,6 +168,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#results-overview" id="toc-results-overview" class="nav-link" data-scroll-target="#results-overview">Results overview</a></li>
   <li><a href="#interview-allocation-diagnostic" id="toc-interview-allocation-diagnostic" class="nav-link" data-scroll-target="#interview-allocation-diagnostic">Interview allocation diagnostic</a></li>
   <li><a href="#explore-interactively" id="toc-explore-interactively" class="nav-link" data-scroll-target="#explore-interactively">Explore interactively</a></li>
+  <li><a href="#what-we-should-typically-see-qualitatively" id="toc-what-we-should-typically-see-qualitatively" class="nav-link" data-scroll-target="#what-we-should-typically-see-qualitatively">What we should typically see (qualitatively)</a></li>
+  <li><a href="#why-this-creates-the-too-good-problem-intuition" id="toc-why-this-creates-the-too-good-problem-intuition" class="nav-link" data-scroll-target="#why-this-creates-the-too-good-problem-intuition">Why this creates the “too good” problem (intuition)</a></li>
+  <li><a href="#matching-rules-that-tend-to-push-toward-a-good-equilibrium" id="toc-matching-rules-that-tend-to-push-toward-a-good-equilibrium" class="nav-link" data-scroll-target="#matching-rules-that-tend-to-push-toward-a-good-equilibrium">Matching rules that tend to push toward a “good equilibrium”</a></li>
   </ul>
 </nav>
     </div>
@@ -207,16 +210,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This project reproduces the “too good for average schools, too bad for top schools” interview trap. Departments over-weight yield when selecting interviews, so mid-tier schools avoid very strong candidates (fear of rejection), top schools avoid weaker candidates, and strong candidates can get stranded.</p>
 <section id="model-sketch" class="level2">
 <h2 class="anchored" data-anchor-id="model-sketch">Model sketch</h2>
-<p>Model sketch (what we simulate) Candidates have latent quality (q_i).</p>
-<p>Departments have tier/quality (t_j) and 1 slot each.</p>
-<p>Interview stage: each department interviews (K) candidates.</p>
-<p>Departments score candidates by: [ = ;+; _{}] The yield term comes from a probability the candidate would accept an offer: [ p_{ij} = !((t_j - q_i) + s_{ij})] where () is logistic; if (q_i t_j), then (p_{ij}) is small (dept thinks “they won’t accept”). (s_{ij}) is a signal bump if candidate signals interest. Offer stage (two variants):</p>
-<p>Decentralized/early offers: departments make offers to top interviewees; candidates may accept quickly, leaving congestion and mismatch. Centralized match (Deferred Acceptance / NRMP-style): stable matching on preferences after interviews.</p>
 <ul>
-<li>Candidates: quality (q_i).</li>
-<li>Departments: tier (t_j), one slot each.</li>
-<li>Interviews: each department selects (K) candidates by score [ <em>{ij} = q_i + p</em>{ij}, p_{ij} = ((t_j - q_i) + s_{ij}) ] where (s_{ij}) is a signal bump; if (q_i t_j), (p_{ij}) is low (expected to reject).</li>
-<li>Matching: either decentralized one-shot offers or a centralized DA (NRMP-style) match over interviewed pairs.</li>
+<li>Candidates: have a latent quality (q_i).</li>
+<li>Departments: have tier (t_j), and one slot each.</li>
+<li>Interview stage: each department interviews (K) candidates selected by score [ <em>{ij} = q_i + p</em>{ij}, p_{ij} = ((t_j - q_i) + s_{ij}) ] where (s_{ij}) is a signal bump; if (q_i t_j), (p_{ij}) is low (expected to reject). The yield term comes from a probability the candidate would accept an offer: [ p_{ij} = !((t_j - q_i) + s_{ij})] where () is logistic; if (q_i t_j), then (p_{ij}) is small (dept thinks “they won’t accept”). (s_{ij}) is a signal bump if candidate signals interest.</li>
+<li>Offer stage (two variants): Decentralized/early offers: departments make offers to top interviewees; candidates may accept quickly, leaving congestion and mismatch. Centralized match (Deferred Acceptance / NRMP-style): stable matching on preferences after interviews.</li>
 </ul>
 <p>Key levers: <code>signal_slots</code> (credible interest signals), <code>mechanism</code> (<code>"decentralized"</code> vs <code>"da"</code>), and interviews per dept <code>K</code>. Yield sensitivity comes from <code>alpha</code> (steepness) and <code>lam</code> (weight on yield).</p>
 </section>
@@ -278,6 +276,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="explore-interactively" class="level2">
 <h2 class="anchored" data-anchor-id="explore-interactively">Explore interactively</h2>
 <p>Open <code>EJM_matching_simulation/simulation_exploration.ipynb</code>: - Tweak <code>params</code> for <code>signal_slots</code>, <code>mechanism</code>, <code>K</code>, <code>alpha</code>, <code>lam</code>. - Run the single-scenario cell to see metrics and a mini bar chart. - Run the heatmap cell to see how interview allocation shifts.</p>
+</section>
+<section id="what-we-should-typically-see-qualitatively" class="level2">
+<h2 class="anchored" data-anchor-id="what-we-should-typically-see-qualitatively">What we should typically see (qualitatively)</h2>
+<p>With parameters like alpha≈2 (steep yield drop when candidate is “overqualified”) and a meaningful lam (departments care about yield), you’ll usually observe: - Bad equilibrium (decentralized, no signals): - Mid-tier departments interview fewer top candidates (mid_depts_interview_top10_share low). - Some high-quality candidates get stranded (stranded_top20_share non-trivial). - Match quality correlation can be weaker than expected, and/or fill rates can be worse. - Better outcomes with: 1. Centralized DA: reduces “exploding offers” and congestion; candidates don’t have to accept early and lose better options. 2. Limited signals: gives mid-tier departments a credible way to distinguish “top candidate who might actually accept” from “top candidate using us as a safety/throwaway.” 3. More interviews (higher K): reduces the interview bottleneck that amplifies errors from yield-guessing.</p>
+</section>
+<section id="why-this-creates-the-too-good-problem-intuition" class="level2">
+<h2 class="anchored" data-anchor-id="why-this-creates-the-too-good-problem-intuition">Why this creates the “too good” problem (intuition)</h2>
+<ul>
+<li>If acceptance probability falls sharply when (q_i t_j), then for a mid-tier dept:
+<ul>
+<li>interviewing the very best candidates is “wasting” interview slots (low chance of acceptance),</li>
+<li>interviewing very weak candidates risks low quality,</li>
+<li>so they cluster interviews around candidates “just above/below” their own tier.</li>
+</ul></li>
+<li>If every mid-tier dept does this, strong candidates can end up with interviews only from the very top (too competitive) and the very bottom (where depts think yield is high), skipping the middle where they’d actually match well. That’s a coordination failure: individually rational interview strategies create a collectively worse assignment.</li>
+</ul>
+</section>
+<section id="matching-rules-that-tend-to-push-toward-a-good-equilibrium" class="level2">
+<h2 class="anchored" data-anchor-id="matching-rules-that-tend-to-push-toward-a-good-equilibrium">Matching rules that tend to push toward a “good equilibrium”</h2>
+<p>A. Centralized match after interviews (Deferred Acceptance)</p>
+<ul>
+<li>Pros: reduces congestion, removes exploding-offer pressure, yields stable matches.</li>
+<li>Doesn’t fully solve interview misallocation (if interview stage is the real bottleneck), but helps.</li>
+</ul>
+<p>B. Credible interest signals (cheap talk → limited, costly, or verifiable)</p>
+<ul>
+<li>A small number of signals (e.g., 3–5) can strongly improve interview allocation.</li>
+<li>In the sim, signal_slots&gt;0 pushes mid-tier schools to include “overqualified but interested” candidates.</li>
+</ul>
+<p>C. Two-stage / tiered interviewing</p>
+<ul>
+<li>Stage 1 broad interviews; Stage 2 “mutual interest” or “shortlist” with higher commitment.</li>
+<li>Reduces wasted interviews on low-probability pairs.</li>
+</ul>
+<p>D. Interview caps + coordinated timing</p>
+<ul>
+<li>Interview caps reduce hoarding by top candidates and top departments.</li>
+<li>Coordinated timelines reduce unraveling.</li>
+</ul>
 
 
 </section>

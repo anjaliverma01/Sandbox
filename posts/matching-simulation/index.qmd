@@ -1,0 +1,72 @@
+---
+title: "Interview Matching Simulation: Yield-Driven Trap"
+date: 2024-11-22
+categories: [simulations, matching, markets]
+toc: true
+---
+
+This project reproduces the "too good for average schools, too bad for top schools" interview trap. Departments over-weight yield when selecting interviews, so mid-tier schools avoid very strong candidates (fear of rejection), top schools avoid weaker candidates, and strong candidates can get stranded.
+
+## Model sketch
+- Candidates: quality \(q_i\).
+- Departments: tier \(t_j\), one slot each.
+- Interviews: each department selects \(K\) candidates by score
+  \[
+  \text{score}_{ij} = q_i + \lambda \log p_{ij}, \quad p_{ij} = \sigma(\alpha (t_j - q_i) + s_{ij})
+  \]
+  where \(s_{ij}\) is a signal bump; if \(q_i \gg t_j\), \(p_{ij}\) is low (expected to reject).
+- Matching: either decentralized one-shot offers or a centralized DA (NRMP-style) match over interviewed pairs.
+
+Key levers: `signal_slots` (credible interest signals), `mechanism` (`"decentralized"` vs `"da"`), and interviews per dept `K`. Yield sensitivity comes from `alpha` (steepness) and `lam` (weight on yield).
+
+## Quick start
+```bash
+cd EJM_matching_simulation
+python3 simulation.py
+```
+For plots in this post:
+```bash
+MPLCONFIGDIR=../Sandbox/.matplotlib python3 - <<'PY'
+from simulation import run_scenarios, collect_scenario_metrics, plot_metric_bars, plot_interview_heatmap
+import pathlib
+outdir = pathlib.Path('Sandbox/posts/matching-simulation')
+outdir.mkdir(parents=True, exist_ok=True)
+scenarios = run_scenarios()
+rows = collect_scenario_metrics(scenarios)
+fig, ax = plot_metric_bars(rows); fig.savefig(outdir/'bars.png', dpi=200)
+fig, ax, _ = plot_interview_heatmap(scenarios[0][1]); fig.savefig(outdir/'heatmap.png', dpi=200)
+PY
+```
+
+## Scenarios compared
+```python
+base = dict(N=600, M=450, K=10, alpha=2.2, lam=1.4)
+scenarios = [
+    ("Bad eq: decentralized, no signals", {**base, "signal_slots": 0, "mechanism": "decentralized", "seed": 1}),
+    ("Fix 1: DA match, no signals",       {**base, "signal_slots": 0, "mechanism": "da",            "seed": 1}),
+    ("Fix 2: decentralized + signals",    {**base, "signal_slots": 3, "mechanism": "decentralized", "seed": 1}),
+    ("Fix 3: DA + signals",               {**base, "signal_slots": 3, "mechanism": "da",            "seed": 1}),
+    ("Fix 4: more interviews (K=18)",     {**base, "K": 18, "signal_slots": 0, "mechanism": "decentralized", "seed": 1}),
+]
+```
+
+## Metrics (higher is better unless noted)
+- **fill_rate**: share of departments that filled their position.
+- **unemployment**: share of candidates unmatched (lower is better).
+- **stranded_top20_share**: among top 20% of candidates by quality, share left unmatched (captures the trap).
+
+## Results overview
+![Scenario comparison](bars.png)
+
+The bad equilibrium (decentralized, no signals) strands many strong candidates and leaves vacancies. DA alone boosts fill rate; signals help decentralized markets; more interviews partially mitigates the bottleneck.
+
+## Interview allocation diagnostic
+![Interview heatmap](heatmap.png)
+
+Rows: department tier bins (low→high). Columns: candidate quality bins (low→high). Color: share of interviews. In the bad equilibrium, mid-tier rows are dim in the top-quality columns—mid-tier departments avoid the very best candidates. With signals/DA, those cells brighten, showing improved access for strong candidates.
+
+## Explore interactively
+Open `EJM_matching_simulation/simulation_exploration.ipynb`:
+- Tweak `params` for `signal_slots`, `mechanism`, `K`, `alpha`, `lam`.
+- Run the single-scenario cell to see metrics and a mini bar chart.
+- Run the heatmap cell to see how interview allocation shifts.

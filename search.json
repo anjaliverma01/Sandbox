@@ -14,20 +14,6 @@
     "text": "Quick smoke test of code blocks:\nimport numpy as np\nnp.random.seed(0)\nnp.random.rand(3)\nInline viz idea: drop in Plotly/Altair/Observable embeds here later."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Welcome",
-    "section": "",
-    "text": "Data & ML Experiments\n\n\nSandbox\n\n\nSimulation, code, and visual storytelling. Work in progress, prototypes, and notes on ML, simulations, and data viz.\n\n\nGitHub Email\n\nLearn more →"
-  },
-  {
-    "objectID": "posts/index.html",
-    "href": "posts/index.html",
-    "title": "Posts",
-    "section": "",
-    "text": "Posts and experiments.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInterview Matching Simulation: Yield-Driven Trap\n\n\n\n\n\n\n\n\nNov 22, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nFirst sandbox notes\n\n\n\n\n\n\n\n\nMay 1, 2024\n\n\n\n\n\nNo matching items"
-  },
-  {
     "objectID": "posts/matching-simulation/index.html",
     "href": "posts/matching-simulation/index.html",
     "title": "Interview Matching Simulation: Yield-Driven Trap",
@@ -82,5 +68,19 @@
     "title": "Interview Matching Simulation: Yield-Driven Trap",
     "section": "Explore interactively",
     "text": "Explore interactively\nOpen EJM_matching_simulation/simulation_exploration.ipynb: - Tweak params for signal_slots, mechanism, K, alpha, lam. - Run the single-scenario cell to see metrics and a mini bar chart. - Run the heatmap cell to see how interview allocation shifts."
+  },
+  {
+    "objectID": "posts/index.html",
+    "href": "posts/index.html",
+    "title": "Posts",
+    "section": "",
+    "text": "Posts and experiments.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInterview Matching Simulation: Yield-Driven Trap\n\n\n\n\n\n\n\n\nNov 22, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nFirst sandbox notes\n\n\n\n\n\n\n\n\nMay 1, 2024\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome",
+    "section": "",
+    "text": "Data & ML Experiments\n\n\nSandbox\n\n\nSimulation, code, and visual storytelling. Work in progress, prototypes, and notes on ML, simulations, and data viz.\n\n\nGitHub Email\n\nLearn more →"
   }
 ]

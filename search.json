@@ -7,11 +7,11 @@
     "text": "Hi, I’m Anjali. This is my sandbox for ML experiments, simulations, code, and visual storytelling.\n\nInterests: ML, simulation, data viz, prototypes.\nWhat you’ll find: work-in-progress notes, visuals, and links to projects/posts.\nContact: GitHub · Email"
   },
   {
-    "objectID": "posts/index.html",
-    "href": "posts/index.html",
-    "title": "Posts",
+    "objectID": "posts/welcome.html",
+    "href": "posts/welcome.html",
+    "title": "First sandbox notes",
     "section": "",
-    "text": "Posts and experiments.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFirst sandbox notes\n\n\n\n\n\n\n\n\nMay 1, 2024\n\n\n\n\n\nNo matching items"
+    "text": "Quick smoke test of code blocks:\nimport numpy as np\nnp.random.seed(0)\nnp.random.rand(3)\nInline viz idea: drop in Plotly/Altair/Observable embeds here later."
   },
   {
     "objectID": "index.html",
@@ -21,10 +21,66 @@
     "text": "Data & ML Experiments\n\n\nSandbox\n\n\nSimulation, code, and visual storytelling. Work in progress, prototypes, and notes on ML, simulations, and data viz.\n\n\nGitHub Email\n\nLearn more →"
   },
   {
-    "objectID": "posts/welcome.html",
-    "href": "posts/welcome.html",
-    "title": "First sandbox notes",
+    "objectID": "posts/index.html",
+    "href": "posts/index.html",
+    "title": "Posts",
     "section": "",
-    "text": "Quick smoke test of code blocks:\nimport numpy as np\nnp.random.seed(0)\nnp.random.rand(3)\nInline viz idea: drop in Plotly/Altair/Observable embeds here later."
+    "text": "Posts and experiments.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInterview Matching Simulation: Yield-Driven Trap\n\n\n\n\n\n\n\n\nNov 22, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nFirst sandbox notes\n\n\n\n\n\n\n\n\nMay 1, 2024\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/matching-simulation/index.html",
+    "href": "posts/matching-simulation/index.html",
+    "title": "Interview Matching Simulation: Yield-Driven Trap",
+    "section": "",
+    "text": "This project reproduces the “too good for average schools, too bad for top schools” interview trap. Departments over-weight yield when selecting interviews, so mid-tier schools avoid very strong candidates (fear of rejection), top schools avoid weaker candidates, and strong candidates can get stranded."
+  },
+  {
+    "objectID": "posts/matching-simulation/index.html#model-sketch",
+    "href": "posts/matching-simulation/index.html#model-sketch",
+    "title": "Interview Matching Simulation: Yield-Driven Trap",
+    "section": "Model sketch",
+    "text": "Model sketch\n\nCandidates: quality (q_i).\nDepartments: tier (t_j), one slot each.\nInterviews: each department selects (K) candidates by score [ {ij} = q_i + p{ij}, p_{ij} = ((t_j - q_i) + s_{ij}) ] where (s_{ij}) is a signal bump; if (q_i t_j), (p_{ij}) is low (expected to reject).\nMatching: either decentralized one-shot offers or a centralized DA (NRMP-style) match over interviewed pairs.\n\nKey levers: signal_slots (credible interest signals), mechanism (\"decentralized\" vs \"da\"), and interviews per dept K. Yield sensitivity comes from alpha (steepness) and lam (weight on yield)."
+  },
+  {
+    "objectID": "posts/matching-simulation/index.html#quick-start",
+    "href": "posts/matching-simulation/index.html#quick-start",
+    "title": "Interview Matching Simulation: Yield-Driven Trap",
+    "section": "Quick start",
+    "text": "Quick start\ncd EJM_matching_simulation\npython3 simulation.py\nFor plots in this post:\nMPLCONFIGDIR=../Sandbox/.matplotlib python3 - &lt;&lt;'PY'\nfrom simulation import run_scenarios, collect_scenario_metrics, plot_metric_bars, plot_interview_heatmap\nimport pathlib\noutdir = pathlib.Path('Sandbox/posts/matching-simulation')\noutdir.mkdir(parents=True, exist_ok=True)\nscenarios = run_scenarios()\nrows = collect_scenario_metrics(scenarios)\nfig, ax = plot_metric_bars(rows); fig.savefig(outdir/'bars.png', dpi=200)\nfig, ax, _ = plot_interview_heatmap(scenarios[0][1]); fig.savefig(outdir/'heatmap.png', dpi=200)\nPY"
+  },
+  {
+    "objectID": "posts/matching-simulation/index.html#scenarios-compared",
+    "href": "posts/matching-simulation/index.html#scenarios-compared",
+    "title": "Interview Matching Simulation: Yield-Driven Trap",
+    "section": "Scenarios compared",
+    "text": "Scenarios compared\nbase = dict(N=600, M=450, K=10, alpha=2.2, lam=1.4)\nscenarios = [\n    (\"Bad eq: decentralized, no signals\", {**base, \"signal_slots\": 0, \"mechanism\": \"decentralized\", \"seed\": 1}),\n    (\"Fix 1: DA match, no signals\",       {**base, \"signal_slots\": 0, \"mechanism\": \"da\",            \"seed\": 1}),\n    (\"Fix 2: decentralized + signals\",    {**base, \"signal_slots\": 3, \"mechanism\": \"decentralized\", \"seed\": 1}),\n    (\"Fix 3: DA + signals\",               {**base, \"signal_slots\": 3, \"mechanism\": \"da\",            \"seed\": 1}),\n    (\"Fix 4: more interviews (K=18)\",     {**base, \"K\": 18, \"signal_slots\": 0, \"mechanism\": \"decentralized\", \"seed\": 1}),\n]"
+  },
+  {
+    "objectID": "posts/matching-simulation/index.html#metrics-higher-is-better-unless-noted",
+    "href": "posts/matching-simulation/index.html#metrics-higher-is-better-unless-noted",
+    "title": "Interview Matching Simulation: Yield-Driven Trap",
+    "section": "Metrics (higher is better unless noted)",
+    "text": "Metrics (higher is better unless noted)\n\nfill_rate: share of departments that filled their position.\nunemployment: share of candidates unmatched (lower is better).\nstranded_top20_share: among top 20% of candidates by quality, share left unmatched (captures the trap)."
+  },
+  {
+    "objectID": "posts/matching-simulation/index.html#results-overview",
+    "href": "posts/matching-simulation/index.html#results-overview",
+    "title": "Interview Matching Simulation: Yield-Driven Trap",
+    "section": "Results overview",
+    "text": "Results overview\n\n\n\nScenario comparison\n\n\nThe bad equilibrium (decentralized, no signals) strands many strong candidates and leaves vacancies. DA alone boosts fill rate; signals help decentralized markets; more interviews partially mitigates the bottleneck."
+  },
+  {
+    "objectID": "posts/matching-simulation/index.html#interview-allocation-diagnostic",
+    "href": "posts/matching-simulation/index.html#interview-allocation-diagnostic",
+    "title": "Interview Matching Simulation: Yield-Driven Trap",
+    "section": "Interview allocation diagnostic",
+    "text": "Interview allocation diagnostic\n\n\n\nInterview heatmap\n\n\nRows: department tier bins (low→high). Columns: candidate quality bins (low→high). Color: share of interviews. In the bad equilibrium, mid-tier rows are dim in the top-quality columns—mid-tier departments avoid the very best candidates. With signals/DA, those cells brighten, showing improved access for strong candidates."
+  },
+  {
+    "objectID": "posts/matching-simulation/index.html#explore-interactively",
+    "href": "posts/matching-simulation/index.html#explore-interactively",
+    "title": "Interview Matching Simulation: Yield-Driven Trap",
+    "section": "Explore interactively",
+    "text": "Explore interactively\nOpen EJM_matching_simulation/simulation_exploration.ipynb: - Tweak params for signal_slots, mechanism, K, alpha, lam. - Run the single-scenario cell to see metrics and a mini bar chart. - Run the heatmap cell to see how interview allocation shifts."
   }
 ]

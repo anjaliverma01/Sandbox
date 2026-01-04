@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2024-11-22">
 
-<title>Posts – Sandbox</title>
+<title>Interview Matching Simulation: Yield-Driven Trap – Sandbox</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,29 +21,62 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-0b37c64f34216b628666a8dac638b53b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-0b37c64f34216b628666a8dac638b53b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,77 +104,19 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Sandbox</span>
     </a>
   </div>
@@ -151,19 +127,19 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../posts/index.html" aria-current="page"> 
+    <a class="nav-link" href="../../posts/index.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../projects.qmd"> 
+    <a class="nav-link" href="../../projects.qmd"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
 </ul>
@@ -184,20 +160,45 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#model-sketch" id="toc-model-sketch" class="nav-link active" data-scroll-target="#model-sketch">Model sketch</a></li>
+  <li><a href="#quick-start" id="toc-quick-start" class="nav-link" data-scroll-target="#quick-start">Quick start</a></li>
+  <li><a href="#scenarios-compared" id="toc-scenarios-compared" class="nav-link" data-scroll-target="#scenarios-compared">Scenarios compared</a></li>
+  <li><a href="#metrics-higher-is-better-unless-noted" id="toc-metrics-higher-is-better-unless-noted" class="nav-link" data-scroll-target="#metrics-higher-is-better-unless-noted">Metrics (higher is better unless noted)</a></li>
+  <li><a href="#results-overview" id="toc-results-overview" class="nav-link" data-scroll-target="#results-overview">Results overview</a></li>
+  <li><a href="#interview-allocation-diagnostic" id="toc-interview-allocation-diagnostic" class="nav-link" data-scroll-target="#interview-allocation-diagnostic">Interview allocation diagnostic</a></li>
+  <li><a href="#explore-interactively" id="toc-explore-interactively" class="nav-link" data-scroll-target="#explore-interactively">Explore interactively</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Posts</h1>
-</div>
+<h1 class="title">Interview Matching Simulation: Yield-Driven Trap</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">simulations</div>
+    <div class="quarto-category">matching</div>
+    <div class="quarto-category">markets</div>
+  </div>
+  </div>
 
 
 
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 22, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -207,60 +208,80 @@ window.Quarto = {
 </header>
 
 
-<p>Posts and experiments.</p>
+<p>This project reproduces the “too good for average schools, too bad for top schools” interview trap. Departments over-weight yield when selecting interviews, so mid-tier schools avoid very strong candidates (fear of rejection), top schools avoid weaker candidates, and strong candidates can get stranded.</p>
+<section id="model-sketch" class="level2">
+<h2 class="anchored" data-anchor-id="model-sketch">Model sketch</h2>
+<ul>
+<li>Candidates: quality (q_i).</li>
+<li>Departments: tier (t_j), one slot each.</li>
+<li>Interviews: each department selects (K) candidates by score [ <em>{ij} = q_i + p</em>{ij}, p_{ij} = ((t_j - q_i) + s_{ij}) ] where (s_{ij}) is a signal bump; if (q_i t_j), (p_{ij}) is low (expected to reject).</li>
+<li>Matching: either decentralized one-shot offers or a centralized DA (NRMP-style) match over interviewed pairs.</li>
+</ul>
+<p>Key levers: <code>signal_slots</code> (credible interest signals), <code>mechanism</code> (<code>"decentralized"</code> vs <code>"da"</code>), and interviews per dept <code>K</code>. Yield sensitivity comes from <code>alpha</code> (steepness) and <code>lam</code> (weight on yield).</p>
+</section>
+<section id="quick-start" class="level2">
+<h2 class="anchored" data-anchor-id="quick-start">Quick start</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> EJM_matching_simulation</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> simulation.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>For plots in this post:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="va">MPLCONFIGDIR</span><span class="op">=</span>../Sandbox/.matplotlib <span class="ex">python3</span> <span class="at">-</span> <span class="op">&lt;&lt;'PY'</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="st">from simulation import run_scenarios, collect_scenario_metrics, plot_metric_bars, plot_interview_heatmap</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="st">import pathlib</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="st">outdir = pathlib.Path('Sandbox/posts/matching-simulation')</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="st">outdir.mkdir(parents=True, exist_ok=True)</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="st">scenarios = run_scenarios()</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="st">rows = collect_scenario_metrics(scenarios)</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="st">fig, ax = plot_metric_bars(rows); fig.savefig(outdir/'bars.png', dpi=200)</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="st">fig, ax, _ = plot_interview_heatmap(scenarios[0][1]); fig.savefig(outdir/'heatmap.png', dpi=200)</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="op">PY</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="scenarios-compared" class="level2">
+<h2 class="anchored" data-anchor-id="scenarios-compared">Scenarios compared</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>base <span class="op">=</span> <span class="bu">dict</span>(N<span class="op">=</span><span class="dv">600</span>, M<span class="op">=</span><span class="dv">450</span>, K<span class="op">=</span><span class="dv">10</span>, alpha<span class="op">=</span><span class="fl">2.2</span>, lam<span class="op">=</span><span class="fl">1.4</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>scenarios <span class="op">=</span> [</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"Bad eq: decentralized, no signals"</span>, {<span class="op">**</span>base, <span class="st">"signal_slots"</span>: <span class="dv">0</span>, <span class="st">"mechanism"</span>: <span class="st">"decentralized"</span>, <span class="st">"seed"</span>: <span class="dv">1</span>}),</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"Fix 1: DA match, no signals"</span>,       {<span class="op">**</span>base, <span class="st">"signal_slots"</span>: <span class="dv">0</span>, <span class="st">"mechanism"</span>: <span class="st">"da"</span>,            <span class="st">"seed"</span>: <span class="dv">1</span>}),</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"Fix 2: decentralized + signals"</span>,    {<span class="op">**</span>base, <span class="st">"signal_slots"</span>: <span class="dv">3</span>, <span class="st">"mechanism"</span>: <span class="st">"decentralized"</span>, <span class="st">"seed"</span>: <span class="dv">1</span>}),</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"Fix 3: DA + signals"</span>,               {<span class="op">**</span>base, <span class="st">"signal_slots"</span>: <span class="dv">3</span>, <span class="st">"mechanism"</span>: <span class="st">"da"</span>,            <span class="st">"seed"</span>: <span class="dv">1</span>}),</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"Fix 4: more interviews (K=18)"</span>,     {<span class="op">**</span>base, <span class="st">"K"</span>: <span class="dv">18</span>, <span class="st">"signal_slots"</span>: <span class="dv">0</span>, <span class="st">"mechanism"</span>: <span class="st">"decentralized"</span>, <span class="st">"seed"</span>: <span class="dv">1</span>}),</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="metrics-higher-is-better-unless-noted" class="level2">
+<h2 class="anchored" data-anchor-id="metrics-higher-is-better-unless-noted">Metrics (higher is better unless noted)</h2>
+<ul>
+<li><strong>fill_rate</strong>: share of departments that filled their position.</li>
+<li><strong>unemployment</strong>: share of candidates unmatched (lower is better).</li>
+<li><strong>stranded_top20_share</strong>: among top 20% of candidates by quality, share left unmatched (captures the trap).</li>
+</ul>
+</section>
+<section id="results-overview" class="level2">
+<h2 class="anchored" data-anchor-id="results-overview">Results overview</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="bars.png" class="img-fluid figure-img"></p>
+<figcaption>Scenario comparison</figcaption>
+</figure>
+</div>
+<p>The bad equilibrium (decentralized, no signals) strands many strong candidates and leaves vacancies. DA alone boosts fill rate; signals help decentralized markets; more interviews partially mitigates the bottleneck.</p>
+</section>
+<section id="interview-allocation-diagnostic" class="level2">
+<h2 class="anchored" data-anchor-id="interview-allocation-diagnostic">Interview allocation diagnostic</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="heatmap.png" class="img-fluid figure-img"></p>
+<figcaption>Interview heatmap</figcaption>
+</figure>
+</div>
+<p>Rows: department tier bins (low→high). Columns: candidate quality bins (low→high). Color: share of interviews. In the bad equilibrium, mid-tier rows are dim in the top-quality columns—mid-tier departments avoid the very best candidates. With signals/DA, those cells brighten, showing improved access for strong candidates.</p>
+</section>
+<section id="explore-interactively" class="level2">
+<h2 class="anchored" data-anchor-id="explore-interactively">Explore interactively</h2>
+<p>Open <code>EJM_matching_simulation/simulation_exploration.ipynb</code>: - Tweak <code>params</code> for <code>signal_slots</code>, <code>mechanism</code>, <code>K</code>, <code>alpha</code>, <code>lam</code>. - Run the single-scenario cell to see metrics and a mini bar chart. - Run the heatmap cell to see how interview allocation shifts.</p>
 
 
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="c2ltdWxhdGlvbnMlMkNtYXRjaGluZyUyQ21hcmtldHM=" data-listing-date-sort="1732233600000" data-listing-file-modified-sort="1767561385900" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="455">
-<div class="thumbnail"><a href="../posts/matching-simulation/index.html" class="no-external">
-
-<p class="card-img-top"><img src="matching-simulation/bars.png"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../posts/matching-simulation/index.html" class="no-external">Interview Matching Simulation: Yield-Driven Trap</a>
-</h3>
-<div class="delink listing-description"><a href="../posts/matching-simulation/index.html" class="no-external">
-This project reproduces the “too good for average schools, too bad for top schools” interview trap. Departments over-weight yield when selecting interviews, so mid-tier…
-</a></div>
-</div>
-<div class="metadata">
-<a href="../posts/matching-simulation/index.html" class="no-external">
-<div class="listing-date">
-Nov 22, 2024
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="bWwlMkNzaW11bGF0aW9ucw==" data-listing-date-sort="1714521600000" data-listing-file-modified-sort="1767561385900" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="17">
-<div class="thumbnail"><a href="../posts/welcome.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../posts/welcome.html" class="no-external">First sandbox notes</a>
-</h3>
-<div class="delink listing-description"><a href="../posts/welcome.html" class="no-external">
-Quick smoke test of code blocks:
-</a></div>
-</div>
-<div class="metadata">
-<a href="../posts/welcome.html" class="no-external">
-<div class="listing-date">
-May 1, 2024
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

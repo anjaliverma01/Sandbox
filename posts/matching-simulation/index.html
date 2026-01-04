@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-11-22">
+<meta name="dcterms.date" content="2026-01-05">
 
 <title>Job Matching Simulation: Yield-Driven Trap – Sandbox</title>
 <style>
@@ -192,7 +192,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 22, 2024</p>
+      <p class="date">January 5, 2026</p>
     </div>
   </div>
   
@@ -207,6 +207,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This project reproduces the “too good for average schools, too bad for top schools” interview trap. Departments over-weight yield when selecting interviews, so mid-tier schools avoid very strong candidates (fear of rejection), top schools avoid weaker candidates, and strong candidates can get stranded.</p>
 <section id="model-sketch" class="level2">
 <h2 class="anchored" data-anchor-id="model-sketch">Model sketch</h2>
+<p>Model sketch (what we simulate) Candidates have latent quality (q_i).</p>
+<p>Departments have tier/quality (t_j) and 1 slot each.</p>
+<p>Interview stage: each department interviews (K) candidates.</p>
+<p>Departments score candidates by: [ = ;+; _{}] The yield term comes from a probability the candidate would accept an offer: [ p_{ij} = !((t_j - q_i) + s_{ij})] where () is logistic; if (q_i t_j), then (p_{ij}) is small (dept thinks “they won’t accept”). (s_{ij}) is a signal bump if candidate signals interest. Offer stage (two variants):</p>
+<p>Decentralized/early offers: departments make offers to top interviewees; candidates may accept quickly, leaving congestion and mismatch. Centralized match (Deferred Acceptance / NRMP-style): stable matching on preferences after interviews.</p>
 <ul>
 <li>Candidates: quality (q_i).</li>
 <li>Departments: tier (t_j), one slot each.</li>

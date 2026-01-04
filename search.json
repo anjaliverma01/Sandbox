@@ -25,7 +25,7 @@
     "href": "posts/matching-simulation/index.html#model-sketch",
     "title": "Job Matching Simulation: Yield-Driven Trap",
     "section": "Model sketch",
-    "text": "Model sketch\n\nCandidates: quality (q_i).\nDepartments: tier (t_j), one slot each.\nInterviews: each department selects (K) candidates by score [ {ij} = q_i + p{ij}, p_{ij} = ((t_j - q_i) + s_{ij}) ] where (s_{ij}) is a signal bump; if (q_i t_j), (p_{ij}) is low (expected to reject).\nMatching: either decentralized one-shot offers or a centralized DA (NRMP-style) match over interviewed pairs.\n\nKey levers: signal_slots (credible interest signals), mechanism (\"decentralized\" vs \"da\"), and interviews per dept K. Yield sensitivity comes from alpha (steepness) and lam (weight on yield)."
+    "text": "Model sketch\nModel sketch (what we simulate) Candidates have latent quality (q_i).\nDepartments have tier/quality (t_j) and 1 slot each.\nInterview stage: each department interviews (K) candidates.\nDepartments score candidates by: [ = ;+; _{}] The yield term comes from a probability the candidate would accept an offer: [ p_{ij} = !((t_j - q_i) + s_{ij})] where () is logistic; if (q_i t_j), then (p_{ij}) is small (dept thinks “they won’t accept”). (s_{ij}) is a signal bump if candidate signals interest. Offer stage (two variants):\nDecentralized/early offers: departments make offers to top interviewees; candidates may accept quickly, leaving congestion and mismatch. Centralized match (Deferred Acceptance / NRMP-style): stable matching on preferences after interviews.\n\nCandidates: quality (q_i).\nDepartments: tier (t_j), one slot each.\nInterviews: each department selects (K) candidates by score [ {ij} = q_i + p{ij}, p_{ij} = ((t_j - q_i) + s_{ij}) ] where (s_{ij}) is a signal bump; if (q_i t_j), (p_{ij}) is low (expected to reject).\nMatching: either decentralized one-shot offers or a centralized DA (NRMP-style) match over interviewed pairs.\n\nKey levers: signal_slots (credible interest signals), mechanism (\"decentralized\" vs \"da\"), and interviews per dept K. Yield sensitivity comes from alpha (steepness) and lam (weight on yield)."
   },
   {
     "objectID": "posts/matching-simulation/index.html#quick-start",
@@ -74,7 +74,7 @@
     "href": "posts/index.html",
     "title": "Posts",
     "section": "",
-    "text": "Posts and experiments.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nJob Matching Simulation: Yield-Driven Trap\n\n\n\n\n\n\n\n\nNov 22, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nFirst sandbox notes\n\n\n\n\n\n\n\n\nMay 1, 2024\n\n\n\n\n\nNo matching items"
+    "text": "Posts and experiments.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nJob Matching Simulation: Yield-Driven Trap\n\n\n\n\n\n\n\n\nJan 5, 2026\n\n\n\n\n\n\n\n\n\n\n\n\nFirst sandbox notes\n\n\n\n\n\n\n\n\nMay 1, 2024\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
